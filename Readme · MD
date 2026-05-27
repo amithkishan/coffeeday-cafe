@@ -1,0 +1,83 @@
+# ☕ Coffee Day Cafe — Backend Setup
+
+## Folder Structure
+```
+your-project/
+├── backend/
+│   ├── server.js       ← Express backend (this file)
+│   ├── package.json    ← Dependencies
+│   └── db.json         ← Auto-created JSON database
+├── login.html          ← Updated login page
+├── new.html            ← Your cafe page (needs 1 edit — see below)
+└── client.js           ← Frontend API script (replaces old server.js)
+```
+
+## Step 1 — Install Node.js
+Download from https://nodejs.org (choose LTS version)
+
+## Step 2 — Install dependencies
+Open a terminal in the `backend/` folder and run:
+```bash
+npm install
+```
+
+## Step 3 — Update new.html (1 line change)
+Find this line in new.html:
+```html
+<script href="server.js"></script>
+```
+Replace it with:
+```html
+<script src="../client.js"></script>
+```
+
+Also update all `addToCart()` button calls to pass the item info, e.g.:
+```html
+<button onclick="addToCart('cappuccino', 'Cappuccino')">Add to Cart</button>
+<button onclick="addToCart('brownie', 'Brownie')">Add to Cart</button>
+```
+
+And update the reservation form's onsubmit:
+```html
+<form onsubmit="return validateForm()">
+```
+
+And the review form's onsubmit:
+```html
+<form onsubmit="return reviewAlert(event)">
+```
+
+## Step 4 — Start the server
+```bash
+npm start
+```
+
+## Step 5 — Open in browser
+```
+http://localhost:3000/login.html
+```
+
+---
+
+## API Reference
+
+| Method | Endpoint            | Auth? | Description              |
+|--------|---------------------|-------|--------------------------|
+| POST   | /api/register       | No    | Create account           |
+| POST   | /api/login          | No    | Login                    |
+| POST   | /api/logout         | No    | Logout                   |
+| GET    | /api/me             | Yes   | Get current user info    |
+| GET    | /api/menu           | No    | Get menu items           |
+| POST   | /api/reservations   | Yes   | Book a table             |
+| GET    | /api/reservations   | Yes   | View your reservations   |
+| DELETE | /api/reservations/:id | Yes | Cancel a reservation   |
+| POST   | /api/orders         | Yes   | Place an order           |
+| GET    | /api/orders         | Yes   | View your orders         |
+| POST   | /api/reviews        | Yes   | Submit a review          |
+| GET    | /api/reviews        | No    | View all reviews         |
+
+---
+
+## Data Storage
+All data is saved in `backend/db.json` automatically. No external database needed!
+To reset all data, simply delete `db.json` and restart the server.

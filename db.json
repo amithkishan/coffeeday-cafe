@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": "1779867555720",
+      "username": "amith",
+      "email": "amith880kishan@gmail.com",
+      "password": "$2b$10$viGvuL3FMMT13NONZG/a.e4uI4s.YTv6SUZGbqYhM23oY2dke/egS",
+      "createdAt": "2026-05-27T07:39:15.720Z"
+    },
+    {
+      "id": "1779867714233",
+      "username": "shrodinger shades",
+      "email": "shrodinger789shades@gmail.com",
+      "password": "$2b$10$nq11Wc4drvjXN13LFNzB9.m8RBihrqL2Bs40Z0KmriCqgivw2JV.a",
+      "createdAt": "2026-05-27T07:41:54.233Z"
+    }
+  ],
+  "reservations": [],
+  "orders": [
+    {
+      "id": "1779868130669",
+      "userId": "1779867555720",
+      "items": [
+        {
+          "name": "Cappuccino",
+          "price": 150,
+          "quantity": 1,
+          "subtotal": 150
+        },
+        {
+          "name": "Brownie",
+          "price": 100,
+          "quantity": 1,
+          "subtotal": 100
+        }
+      ],
+      "total": 250,
+      "status": "confirmed",
+      "createdAt": "2026-05-27T07:48:50.669Z"
+    }
+  ],
+  "reviews": []
+}
