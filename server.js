@@ -280,6 +280,12 @@ app.get("/api/reviews", (req, res) => {
     .reverse();
   res.json({ success: true, reviews });
 });
+// GET /api/users — Get all users (for testing only)
+app.get("/api/users", (req, res) => {
+  const db = readDB();
+  const users = db.users.map(({ id, username, email, createdAt }) => ({ id, username, email, createdAt }));
+  res.json({ success: true, users });
+});
 
 // ─── Start Server ─────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
